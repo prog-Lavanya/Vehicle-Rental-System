@@ -27,7 +27,6 @@ public:
     string getBrand() const { return brand; }
     double getRate() const { return rentalRate; }
 
-    // file I/O
     virtual string toFileString() const = 0;
     static Vehicle* loadFromLine(const string& line);
 };

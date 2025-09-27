@@ -134,15 +134,20 @@ void addVehicle(vector<Vehicle*>& vehicles) {
 // Rent or return vehicle
 void rentOrReturn(vector<Vehicle*>& vehicles, bool rent=true) {
     cout << "Enter category (Car/Motorcycle/Truck/Bicycle): ";
-    string cat; cin >> cat;
+    string cat; 
+    cin >> cat;
 
     vector<Vehicle*> filtered;
     for (auto v : vehicles) {
         bool match = false;
-        if (cat == "Car" && dynamic_cast<Car*>(v)) match = true;
-        else if (cat == "Motorcycle" && dynamic_cast<Motorcycle*>(v)) match = true;
-        else if (cat == "Truck" && dynamic_cast<Truck*>(v)) match = true;
-        else if (cat == "Bicycle" && dynamic_cast<Bicycle*>(v)) match = true;
+        if (cat == "Car" && dynamic_cast<Car*>(v)) 
+            match = true;
+        else if (cat == "Motorcycle" && dynamic_cast<Motorcycle*>(v)) 
+            match = true;
+        else if (cat == "Truck" && dynamic_cast<Truck*>(v)) 
+            match = true;
+        else if (cat == "Bicycle" && dynamic_cast<Bicycle*>(v)) 
+            match = true;
 
         if (match && ((rent && !v->getStatus()) || (!rent && v->getStatus())))
             filtered.push_back(v);
@@ -156,8 +161,10 @@ void rentOrReturn(vector<Vehicle*>& vehicles, bool rent=true) {
     displayVehicles(filtered, cat, rent);
     int idx = getVehicleIndex(filtered.size());
     if (idx >= 0) {
-        if (rent) filtered[idx]->rent();
-        else filtered[idx]->returnVehicle();
+        if (rent) 
+            filtered[idx]->rent();
+        else 
+            filtered[idx]->returnVehicle();
         cout << (rent ? "Vehicle rented!" : "Vehicle returned!") << endl;
     }
 }
@@ -194,7 +201,8 @@ int main() {
     string line;
     while (getline(fin, line)) {
         Vehicle* v = Vehicle::loadFromLine(line);
-        if(v) vehicles.push_back(v);
+        if(v) 
+            vehicles.push_back(v);
     }
     fin.close();
 

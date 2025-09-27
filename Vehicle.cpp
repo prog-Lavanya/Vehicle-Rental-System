@@ -79,10 +79,14 @@ Vehicle* Vehicle::loadFromLine(const string& line) {
 
     ss >> type >> id >> brand >> rate >> extra >> rented;
 
-    if (type == "Car") return new Car(id, brand, rate, extra, rented);
-    if (type == "Motorcycle") return new Motorcycle(id, brand, rate, extra, rented);
-    if (type == "Truck") return new Truck(id, brand, rate, extra, rented);
-    if (type == "Bicycle") return new Bicycle(id, brand, rate, extra, rented);
+    if (type == "Car") 
+        return new Car(id, brand, rate, extra, rented);
+    if (type == "Motorcycle") 
+        return new Motorcycle(id, brand, rate, extra, rented);
+    if (type == "Truck") 
+        return new Truck(id, brand, rate, extra, rented);
+    if (type == "Bicycle") 
+        return new Bicycle(id, brand, rate, extra, rented);
 
     return nullptr;
 }
